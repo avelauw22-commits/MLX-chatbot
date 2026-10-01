@@ -1,15 +1,13 @@
-//
-//  ContentView.swift
-//  MLX-chatbot
-//
-//  Created by AVELA Student on 2/23/26.
+
+ // Your AI App!!
+
+//  COPY & PASTE: This is your starter file.
+//    Copy EVERYTHING below and paste it into ContentView.swift
+// *    replace the " ? " with your own text!
 
 
 import SwiftUI
 
-// ─────────────────────────────────────────────────────────────
-// COLOUR HELPER — use Color(hex: "#RRGGBB") anywhere below
-// ─────────────────────────────────────────────────────────────
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -30,19 +28,22 @@ extension Color {
     }
 }
 
-// ─────────────────────────────────────────────────────────────
-// CONTENT VIEW
-// ─────────────────────────────────────────────────────────────
+
 struct ContentView: View {
 
     @StateObject private var vm = ChatViewModel()
     @State private var showResetConfirm = false
 
-    // ★ Edit these questions to match your course content
+//----Section 2: suggested questions-----------//
+    
     private let suggestedQuestions = [
-        "What is data activism?"
-    ]
+        " ? ",
+        " ? ",
+        //ADD YOUR QUESTIONS BELOW (comma after each one)
+   ]
 
+//----End of Section 2: suggested questions----//
+ 
     var body: some View {
         NavigationStack {
             homeView
@@ -59,14 +60,12 @@ struct ContentView: View {
 
     private var homeView: some View {
         VStack(spacing: 0) {
-            Image("Logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 84, height: 84)
-                .shadow(radius: 8)
-                .padding(.top, 24)
+//----Section 3: App Icon/sf Symbols-----------//
 
-            if vm.messages.isEmpty {
+[Paste here]
+            
+//----End of Section 3: App Icon/sf Symbols----//
+            if vm.messages.isEmpty || !vm.isReady {
                 welcomeView
             } else {
                 messagesView
@@ -74,7 +73,7 @@ struct ContentView: View {
 
             inputView
         }
-        .navigationTitle("AVELA-CourseSLM")
+        .navigationTitle("MyAI/MLChatbot")
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button(role: .destructive) {
@@ -94,13 +93,20 @@ struct ContentView: View {
         VStack(spacing: 32) {
             Spacer()
             VStack(spacing: 16) {
-                Text("Welcome to AVELA AI")
+                
+//----Section 1: Title/Subtitle-----------//
+
+                // ★ CHANGE THE TEXT BELOW TO YOUR OWN WELCOME MESSAGE:
+               Text( " ? " )
                     .font(.largeTitle.bold())
-                // ★ Edit this subtitle to describe your course
-                Text("Click to learn about data activism.")
+
+                // ★ CHANGE THIS SUBTITLE TO DESCRIBE YOUR APP:
+                Text(" ? ")
                     .font(.title3)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
+                
+//----End of Section 1: Title/Subtitle----//
 
                 // Suggested question chips
                 HStack(spacing: 12) {
@@ -157,16 +163,12 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 Divider()
                 HStack(alignment: .top, spacing: 16) {
-                    TextField("Type a message...", text: $vm.input, axis: .vertical)
-                        .textFieldStyle(.plain)
-                        .font(.system(size: 16))
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 24)
-                        .frame(minHeight: 120, alignment: .topLeading)
-                        .background(RoundedRectangle(cornerRadius: 28).fill(Color.gray.opacity(0.1)))
-                        .overlay(RoundedRectangle(cornerRadius: 28).stroke(Color.gray.opacity(0.3), lineWidth: 1.5))
-                        .lineLimit(1...12)
-                        .disabled(!vm.isReady)
+
+//----Section 4: message box (text)-----------//
+                    
+[Paste here]
+
+//----End of Section 4: message box (text)----//
 
                     Button("Send") { vm.send() }
                         .buttonStyle(.borderedProminent)
@@ -174,8 +176,9 @@ struct ContentView: View {
                         .padding(.top, 20)
                         .disabled(vm.input.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !vm.isReady)
                 }
-                .padding(.horizontal, 24)
-                .padding(.vertical, 24)
+                .padding(.horizontal, 16)
+                .padding(.top, 12)
+                .padding(.bottom, 44)
 
             }
 #if os(macOS)
@@ -244,9 +247,7 @@ struct ContentView: View {
     }
 }
 
-// ─────────────────────────────────────────────────────────────
-// MESSAGE BUBBLE
-// ─────────────────────────────────────────────────────────────
+
 struct MessageBubble: View {
     let message: String
 
