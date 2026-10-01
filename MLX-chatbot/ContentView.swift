@@ -96,12 +96,12 @@ struct ContentView: View {
                 
 //----Section 1: Title/Subtitle-----------//
 
-                // ★ CHANGE THE TEXT BELOW TO YOUR OWN WELCOME MESSAGE:
-               Text( " ? " )
+                // ★ CHANGE THE TEXT BELOW TO YOUR OWN WELCOME MESSAGE: hi type to speak to lj
+               Text( " hi be welcome to talk to lj " )
                     .font(.largeTitle.bold())
 
                 // ★ CHANGE THIS SUBTITLE TO DESCRIBE YOUR APP:
-                Text(" ? ")
+                Text(" talk about fifia")
                     .font(.title3)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
